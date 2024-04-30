@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1 style="font-size: 24;color: red;text-align: center;">Temperature: <span id="data">00</span></h1>
-
+    <h2 style="font-size: 30;color: red;text-align: center;"><span id="stupid"></span></h2>
     <script type="module">
         // Import the functions you need from the SDKs you need
         //import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
@@ -43,6 +43,10 @@
         database.ref("/MCP9700/Temperature").on("value", function(snapshot){
             var temp = snapshot.val();
             document.getElementById("data").innerHTML = temp;
+        })
+        database.ref("/MCP9700/Test").on("value", function(snapshot){
+            var lie = snapshot.val();
+            document.getElementById("stupid").innerHTML = lie;
         })
       </script>
 </body>
